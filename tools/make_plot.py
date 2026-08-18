@@ -1,6 +1,12 @@
-import pickle, math
+import pickle, math, os, sys
 
-ms = pickle.load(open("/tmp/opencode/prv-dsp/measurements.pkl", "rb"))
+if len(sys.argv) < 2:
+    sys.exit("usage: python make_plot.py <measurements.pkl> [outdir] [title]")
+ms_path = sys.argv[1]
+outdir = sys.argv[2] if len(sys.argv) > 2 else os.path.join(os.path.dirname(ms_path) or ".", "rta_data")
+title = sys.argv[3] if len(sys.argv) > 3 else "RTA (1/48 oct): SPL vs frequency"
+os.makedirs(outdir, exist_ok=True)
+ms = pickle.load(open(ms_path, "rb"))
 
 W, H, M = 900, 420, 50
 l, r, t, b = 60, W - M, M, H - M
@@ -34,7 +40,7 @@ for i, m in enumerate(ms):
     out.append("<circle cx='%.1f' cy='%.1f' r='3' fill='%s'/>" % (fx(400), fy(max(m["spl"])), cols[i]))
     out.append("<text x='%.1f' y='%.1f' font-size='11' fill='%s'>m%d</text>" % (fx(400) + 6, fy(max(m["spl"])), cols[i], i))
 
-out.append("<text x='%d' y='24' font-size='14' fill='#222'>Ford Ranger RTA (1/48 oct, 1216 pts): SPL vs frequency</text>" % M)
+out.append("<text x='%d' y='24' font-size='14' fill='#222'>%s</text>" % (M, title))
 out.append("</svg>")
-open("/tmp/opencode/prv-dsp/rta_data/plot.svg", "w").write("\n".join(out))
+open(os.path.join(outdir, "plot.svg"), "w").write("\n".join(out))
 print("plot.svg written")

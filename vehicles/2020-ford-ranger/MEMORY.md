@@ -31,11 +31,14 @@ Minimal Java ObjectInputStream stream walker. Key REW quirks handled:
 - Events tagged with class+field context (`.ctx()`), primitive values captured
   for classes in `Reader.peek`, object-array elements tagged `Name[i]`.
 
-Run: `python javastream.py <file>.mdat` -> out.txt event log.
-Extract: `python extract.py` -> measurements.pkl (per-measurement dicts:
-prims, spl, raw, filters keyed by index, label, freq grid).
-Export: `export_csv.py` -> per-measurement CSV/JSON + octave-band table.
-Plot: `make_plot.py` -> rta_data/plot.svg.
+Run (from this vehicle dir, e.g. `vehicles/2020-ford-ranger/`):
+- `python ../../tools/javastream.py <file>.mdat` -> out.txt event log
+- `python ../../tools/extract.py data/REW-data/<file>.mdat measurements.pkl` ->
+  measurements.pkl (per-measurement dicts: prims, spl, raw, filters keyed by
+  index, label, freq grid)
+- `python ../../tools/export_csv.py measurements.pkl` -> rta_data/ (per-measurement
+  CSV/JSON + octave-band table)
+- `python ../../tools/make_plot.py measurements.pkl` -> rta_data/plot.svg
 
 ## EQ methodology
 - Driver-position total = incoherent POWER SUM of the 4 speakers
@@ -68,15 +71,17 @@ FR 60.7 vs FL 53.7 @160); fronts own the 4-6.3 kHz peak; all share a
    Optional: RL 4k +6 Q1.8, FR 16k -4 Q2.0.
 
 ## Files
-- `javastream.py` - REW mdat stream walker
-- `extract.py` - pulls the 5 measurements into measurements.pkl
-- `eq_target.py` - target/EQ math (power sum, Harman target)
-- `export_csv.py`, `make_plot.py` - deliverables
-- `rta_data/` - per-measurement CSV/JSON, octave bands, plot.svg
+- `../../tools/javastream.py` - REW mdat stream walker (shared)
+- `../../tools/extract.py` - pulls measurements out of an mdat into measurements.pkl
+- `../../tools/eq_target.py` - target/EQ math (power sum, Harman target)
+- `../../tools/export_csv.py`, `../../tools/make_plot.py` - deliverables
+- `data/REW-data/` - raw .mdat captures + REW EQ exports
+- `analysis/` - measurements.pkl, per-measurement CSV/JSON, octave bands, plot.svg (gitignored)
 - `dsp24x_eq_suggestions.txt` - FINAL DELIVERABLE (all 4 options + per-speaker PEQ)
-- `DSP2.4X-Manual-2021.pdf` / `dsp24x.txt` - PRV 2.4X manual (EQ capabilities)
-- `measdata_fields.txt` - MeasData 128-field table
-- `ois.java`, `oos.java`, `osc.java`, `peek_mdat.py`, `readall_mdat.py`, `manual.txt`, `out.txt` - earlier diagnostics
+- `../../docs/DSP2.4X-Manual-2021.pdf` / `../../docs/dsp24x.txt` - PRV 2.4X manual (EQ capabilities)
+- `../../tools/reference/measdata_fields.txt` - MeasData 128-field table
+- `../../tools/reference/ois.java`, `oos.java`, `osc.java`, `../../tools/peek_mdat.py`,
+  `../../tools/readall_mdat.py` - earlier diagnostics
 
 ## Notes / caveats
 - Verify after programming: re-measure the 4 speakers at driver position

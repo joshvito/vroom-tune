@@ -1,6 +1,6 @@
 import javaobj, sys, time, io
 
-path = "/home/josh/Downloads/2020-ford-ranger-rta-measurements-bb.mdat"
+path = sys.argv[1] if len(sys.argv) > 1 else sys.exit("usage: python readall_mdat.py <input.mdat>")
 buff = open(path, "rb").read()
 
 def read_all():

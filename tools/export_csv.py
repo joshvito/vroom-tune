@@ -1,8 +1,11 @@
-import pickle, csv, os, json
+import pickle, csv, os, json, bisect, sys
 
-ms = pickle.load(open("/tmp/opencode/prv-dsp/measurements.pkl", "rb"))
-outdir = "/tmp/opencode/prv-dsp/rta_data"
+if len(sys.argv) < 2:
+    sys.exit("usage: python export_csv.py <measurements.pkl> [outdir]")
+ms_path = sys.argv[1]
+outdir = sys.argv[2] if len(sys.argv) > 2 else os.path.join(os.path.dirname(ms_path) or ".", "rta_data")
 os.makedirs(outdir, exist_ok=True)
+ms = pickle.load(open(ms_path, "rb"))
 
 for i, m in enumerate(ms):
     start = m["prims"].get("startFreq", 0.0)
@@ -28,7 +31,6 @@ for i, m in enumerate(ms):
 # combined summary CSV, log-spaced octave bands 20..20k
 oct_bands = [16, 20, 25, 31.5, 40, 50, 63, 80, 100, 125, 160, 200, 250, 315, 400, 500, 630, 800,
              1000, 1250, 1600, 2000, 2500, 3150, 4000, 5000, 6300, 8000, 10000, 12500, 16000, 20000]
-import bisect
 with open(os.path.join(outdir, "combined_octave_bands.csv"), "w") as f:
     w = csv.writer(f)
     w.writerow(["band_hz"] + ["m%d_%s" % (i, m["label"].split("PM")[0].split(",")[-1].strip().replace(":", "")) for i, m in enumerate(ms)])

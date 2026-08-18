@@ -1,8 +1,10 @@
-import sys, re
-sys.path.insert(0, "/tmp/opencode/prv-dsp")
+import sys, re, os
 from javastream import Reader
 
-path = sys.argv[1] if len(sys.argv) > 1 else "/home/josh/Downloads/2020-ford-ranger-rta-measurements-bb.mdat"
+if len(sys.argv) < 2:
+    sys.exit("usage: python extract.py <input.mdat> [output.pkl]")
+path = sys.argv[1]
+out_path = sys.argv[2] if len(sys.argv) > 2 else os.path.splitext(path)[0] + ".pkl"
 r = Reader(open(path, "rb").read())
 r.peek = {"roomeqwizard.MeasData", "roomeqwizard.CalData", "roomeqwizard.Filter"}
 evs = r.run()
@@ -77,6 +79,6 @@ for i, m in enumerate(measurements):
         i, t, n, m["freq"][0], m["freq"][-1], m["spl"][0], m["spl"][-1], len(m["filters"])))
 
 import pickle
-with open("/tmp/opencode/prv-dsp/measurements.pkl", "wb") as fh:
+with open(out_path, "wb") as fh:
     pickle.dump(measurements, fh)
-print("wrote measurements.pkl")
+print("wrote", out_path)

@@ -1,6 +1,8 @@
-import pickle, math, bisect
+import pickle, math, bisect, sys
 
-ms = pickle.load(open("/tmp/opencode/prv-dsp/measurements.pkl", "rb"))
+if len(sys.argv) < 2:
+    sys.exit("usage: python eq_target.py <measurements.pkl>")
+ms = pickle.load(open(sys.argv[1], "rb"))
 bands = [25, 40, 63, 100, 160, 250, 400, 630, 1000, 1600, 2500, 4000, 6300, 10000, 16000]
 names = ["baseline", "front left", "rear right", "rear left", "front right"]
 

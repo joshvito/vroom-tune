@@ -1,6 +1,6 @@
 import javaobj, sys, time
 
-path = "/home/josh/Downloads/2020-ford-ranger-rta-measurements-bb.mdat"
+path = sys.argv[1] if len(sys.argv) > 1 else sys.exit("usage: python peek_mdat.py <input.mdat>")
 
 with open(path, "rb") as f:
     data = f.read()
