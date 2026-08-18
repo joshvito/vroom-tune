@@ -1,4 +1,4 @@
-# Car Audio Tune
+# vroom-tune
 
 Tooling and measurements for tuning car audio systems to a target curve.
 Each vehicle gets its own data directory under `vehicles/`; the shared Python
