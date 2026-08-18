@@ -1,0 +1,129 @@
+flags=0x02 nf=128
+  D alignSPLOffsetCumulative 
+  D alignSPLOffsetLast 
+  D asdOffset 
+  I audioDataLength 
+  I audioDataOffset 
+  D calR 
+  D dBcOffset 
+  I dataLength 
+  F endFreq 
+  D fdwEndFreq 
+  D fdwFrac 
+  I fdwPPO 
+  D fdwStartFreq 
+  F freqStep 
+  D hfFallSlope 
+  I hfFallStart 
+  D impedanceCal 
+  D inputR 
+  Z isFromRTA 
+  Z isLogSpaced 
+  F lastUnwrapOffsetFreq 
+  D leadsR 
+  I lfRiseEnd 
+  D lfRiseSlope 
+  I lfRiseStart 
+  D logStep 
+  D logStepLog 
+  I numSweeps 
+  D octaveFrac 
+  Z phaseIsUnwrapped 
+  I ppo 
+  D refR 
+  D roomHeight 
+  D roomLength 
+  D roomWidth 
+  I sampleRate 
+  J sourceFileDate 
+  I sourceType 
+  I speakerBassMgmtShape 
+  I speakerCutoff 
+  F startFreq 
+  Z useBars 
+  F validEndFreq 
+  F validStartFreq 
+  I xOverHPCutoff 
+  I xOverLPCutoff 
+  L addRoomCurve Ljava/lang/Boolean;
+  L calDataLimitApplied Ljava/lang/Boolean;
+  L ceaData Lroomeqwizard/CEA2010Data;
+  L dBVInputOffset Ljava/lang/Double;
+  L dBVOutputOffset Ljava/lang/Double;
+  L distortionData Lroomeqwizard/DistortionData;
+  L eightc Lroomeqwizard/Eightc;
+  L eightcPosnsMeasured Ljava/lang/String;
+  L eightcProfilePosnIDs Ljava/util/HashSet;
+  L eightcProfileSt Ljava/lang/String;
+  L eightcRoomID Ljava/lang/String;
+  L eightcRoomName Ljava/lang/String;
+  L enable Ljava/lang/Boolean;
+  L eqConfig Lroomeqwizard/EQConfig;
+  L eqName Ljava/lang/String;
+  [ fdwImag [F
+  [ fdwReal [F
+  L filterSet Lroomeqwizard/FilterSet;
+  L filterSetWhenMeasured Lroomeqwizard/FilterSet;
+  [ gdValues [F
+  L impedanceCalType Lroomeqwizard/ImpedanceCal;
+  L inputVolume Ljava/lang/Double;
+  L ir Lroomeqwizard/IRFloat;
+  L irData Lroomeqwizard/IRData;
+  L jre Ljava/lang/String;
+  L locked Ljava/lang/Boolean;
+  L measNotes Ljava/lang/String;
+  L meterCal Lroomeqwizard/CalData;
+  L micSensitivity Ljava/lang/Double;
+  L noiseFilter Lroomeqwizard/NoiseFilter;
+  L osName Ljava/lang/String;
+  L osVersion Ljava/lang/String;
+  L outputName Ljava/lang/String;
+  L outputVolume Ljava/lang/Double;
+  L peaks Ljava/util/ArrayList;
+  [ phaseValues [F
+  [ rawPhaseValues [F
+  [ rawSourceSet [[F
+  [ rawUnwPhaseValues [F
+  [ rawValues [F
+  L refResistancedB Ljava/lang/Double;
+  L rewSubVersion Ljava/lang/Integer;
+  L rewVersion Ljava/lang/Integer;
+  L roomData Lroomeqwizard/RoomData;
+  L rtaDist Lroomeqwizard/RTADistortionData;
+  L savedColor Ljava/awt/Color;
+  L scCal Lroomeqwizard/CalData;
+  L shortDesc Ljava/lang/String;
+  L sigGenLevelSt Ljava/lang/String;
+  [ sourceCalOffsets [F
+  L sourceFileFormat Ljava/lang/String;
+  L sourceFileName Ljava/lang/String;
+  [ sourceMax [F
+  [ sourceMaxdBFS [F
+  [ sourceMin [F
+  [ sourceMindBFS [F
+  [ sourceSet [[F
+  [ sourceWeighting [F
+  [ sourcedBOffsets [F
+  L speakerBassMgmtSlope Ljava/lang/Integer;
+  L speakerBassMgmtXOverSlope Lroomeqwizard/XOverSlope;
+  L speakerLocn Lroomeqwizard/Location;
+  L splCalOffset Ljava/lang/Double;
+  [ splValues [F
+  [ steppedSineResults [Lroomeqwizard/SteppedSineDataPoint;
+  L subLFCutoff Ljava/lang/Integer;
+  L subLFSlope Ljava/lang/Integer;
+  L subLFXOverSlope Lroomeqwizard/XOverSlope;
+  L sweep Lroomeqwizard/MeasSweepFunction;
+  L sweepLevel Ljava/lang/Double;
+  L tails Lroomeqwizard/MinPhaseTails;
+  L targetLevel Ljava/lang/Double;
+  L targetShape Lroomeqwizard/TargetShape;
+  L timingRefInputName Ljava/lang/String;
+  L timingRefName Ljava/lang/String;
+  L timingReferenceMode Lroomeqwizard/TimingReference;
+  L ts Lroomeqwizard/TSParams;
+  [ unwPhaseValues [F
+  L usesEmbeddedCalData Ljava/lang/Boolean;
+  L versionSt Ljava/lang/String;
+  L xOverHPChoice Lroomeqwizard/XOverChoice;
+  L xOverLPChoice Lroomeqwizard/XOverChoice;

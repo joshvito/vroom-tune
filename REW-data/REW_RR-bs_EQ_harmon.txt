@@ -1,0 +1,11 @@
+Filter Settings file
+
+Room EQ V5.31.3
+Dated: Aug 17, 2026 7:32:43 PM
+
+Notes:RR - baseline 1 PEQ
+
+Equaliser: Configurable PEQ
+RR-baseline
+Filter  1: ON  PK       Fc    3891 Hz  Gain   4.50 dB  Q    1.7
+

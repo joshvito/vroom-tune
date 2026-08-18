@@ -1,0 +1,557 @@
+   str 'REW Measurement Data File V2'
+   str 'Notes:2020-ford-RTA'
+class javax.swing.ImageIcon                      flags=0x03 nf=5
+   obj javax.swing.ImageIcon
+   obj javax.swing.ImageIcon
+   str '<HTML><style type="text/css">body { margin-left: 3; }</style><BODY>Aug 16, 2026<BR>4:09:42 PM<BR>4 to 23,714 H'
+   obj javax.swing.ImageIcon
+   str '<HTML><style type="text/css">body { margin-left: 3; }</style><BODY>Aug 16, 2026<BR>4:10:37 PM<BR>4 to 23,714 H'
+   obj javax.swing.ImageIcon
+   str '<HTML><style type="text/css">body { margin-left: 3; }</style><BODY>Aug 16, 2026<BR>4:11:43 PM<BR>4 to 23,714 H'
+   obj javax.swing.ImageIcon
+   str '<HTML><style type="text/css">body { margin-left: 3; }</style><BODY>Aug 16, 2026<BR>4:12:51 PM<BR>4 to 23,714 H'
+   obj javax.swing.ImageIcon
+   str '<HTML><style type="text/css">body { margin-left: 3; }</style><BODY>Aug 16, 2026<BR>4:14:16 PM<BR>4 to 23,714 H'
+class roomeqwizard.MeasData                      flags=0x02 nf=128
+   obj roomeqwizard.MeasData
+   prim alignSPLOffsetCumulative=0.0 @
+   prim alignSPLOffsetLast=0.0 @
+   prim asdOffset=0.0 @
+   prim audioDataLength=0 @
+   prim audioDataOffset=0 @
+   prim calR=0.0 @
+   prim dBcOffset=-30.181652069091797 @
+   prim dataLength=1216 @
+   prim endFreq=23713.736328125 @
+   prim fdwEndFreq=0.0 @
+   prim fdwFrac=0.0 @
+   prim fdwPPO=0 @
+   prim fdwStartFreq=0.0 @
+   prim freqStep=0.0 @
+   prim hfFallSlope=0.5 @
+   prim hfFallStart=1000 @
+   prim impedanceCal=1.0 @
+   prim inputR=0.0 @
+   prim isFromRTA=True @
+   prim isLogSpaced=True @
+   prim lastUnwrapOffsetFreq=0.0 @
+   prim leadsR=0.0 @
+   prim lfRiseEnd=20 @
+   prim lfRiseSlope=1.0 @
+   prim lfRiseStart=200 @
+   prim logStep=1.007246412223704 @
+   prim logStepLog=0.007220283130832763 @
+   prim numSweeps=0 @
+   prim octaveFrac=0.0 @
+   prim phaseIsUnwrapped=False @
+   prim ppo=96 @
+   prim refR=0.0 @
+   prim roomHeight=2.4 @
+   prim roomLength=5.0 @
+   prim roomWidth=4.0 @
+   prim sampleRate=48000 @
+   prim sourceFileDate=1786910982289 @
+   prim sourceType=8 @
+   prim speakerBassMgmtShape=0 @
+   prim speakerCutoff=80 @
+   prim startFreq=3.662109375 @
+   prim useBars=False @
+   prim validEndFreq=23713.736328125 @
+   prim validStartFreq=3.662109375 @
+   prim xOverHPCutoff=100 @
+   prim xOverLPCutoff=1000 @
+class java.lang.Boolean                          flags=0x02 nf=1
+   obj java.lang.Boolean
+class java.lang.Double                           flags=0x02 nf=1
+class java.lang.Number                           flags=0x02 nf=0
+   obj java.lang.Double
+   obj java.lang.Double
+   obj java.lang.Boolean
+   str 'Generic'
+class roomeqwizard.FilterSet                     flags=0x02 nf=3
+   obj roomeqwizard.FilterSet
+class [Lroomeqwizard.Filter;                     flags=0x02 nf=0
+   objarr [Lroomeqwizard.Filter; len=28 @roomeqwizard.MeasData.filterSet.roomeqwizard.FilterSet.filters
+class roomeqwizard.Filter                        flags=0x02 nf=48
+   obj roomeqwizard.Filter
+class roomeqwizard.Filter$FilterTypes            flags=0x12 nf=0
+class java.lang.Enum                             flags=0x12 nf=0
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+class roomeqwizard.FilterGroup                   flags=0x12 nf=0
+   enum roomeqwizard.FilterGroup = NONE
+class roomeqwizard.XOverShape                    flags=0x12 nf=0
+   enum roomeqwizard.XOverShape = BUTTERWORTH
+class roomeqwizard.XOverSlope                    flags=0x12 nf=0
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+class [Lroomeqwizard.XOverFilter;                flags=0x02 nf=0
+   objarr [Lroomeqwizard.XOverFilter; len=2 @roomeqwizard.MeasData.filterSet.roomeqwizard.FilterSet.xOverFilters
+class roomeqwizard.XOverFilter                   flags=0x02 nf=16
+   obj roomeqwizard.XOverFilter
+   obj roomeqwizard.FilterSet
+   str '1.8.0_422 64-bit'
+   str '65536-point 1/48 octave RTA using Rectangular window and 119 averages\n\nInput RMS 72.68 dB\n67.6 dB C, 43.8 dB A'
+class roomeqwizard.CalData                       flags=0x02 nf=12
+   obj roomeqwizard.CalData
+   prim inverseCSelected=False @roomeqwizard.MeasData.meterCal
+class [F                                         flags=0x02 nf=0
+   arr [F  len=615   @roomeqwizard.MeasData.meterCal.roomeqwizard.CalData.freqArray [0]=   10.0540 [last]=20016.8164
+   arr [F  len=615   @roomeqwizard.MeasData.meterCal.roomeqwizard.CalData.gainArray [0]=   -5.0725 [last]=    0.1154
+   arr [F  len=615   @roomeqwizard.MeasData.meterCal.roomeqwizard.CalData.phaseArray [0]=    0.0000 [last]=    0.0000
+   obj java.lang.Double
+class java.lang.Integer                          flags=0x02 nf=1
+   obj java.lang.Integer
+   str '7021922.txt'
+   obj roomeqwizard.CalData
+   str 'windows 11'
+   str '10.0'
+   str 'Headphones (Ford Ranger), no output selected, L+R, volume: no control'
+   arr [F  len=1216  @roomeqwizard.MeasData.rawValues [0]=   41.9758 [last]=   10.5338
+   obj java.lang.Double
+   obj java.lang.Integer
+   obj java.lang.Integer
+class java.awt.Color                             flags=0x02 nf=5
+   obj java.awt.Color
+   str 'baseline'
+   str '65536-point 1/48 octave RTA using Rectangular window and 119 averages\n'
+   str 'EXCL: Microphone (Umik-1  Gain: 18dB  ), MICROPHONE (Master Volume), R, volume: 1.000'
+   obj java.lang.Double
+   arr [F  len=1216  @roomeqwizard.MeasData.splValues [0]=   41.9758 [last]=   10.5338
+   obj java.lang.Integer
+   enum roomeqwizard.XOverSlope = SLOPE_24DB
+   obj java.lang.Double
+class roomeqwizard.TargetShape                   flags=0x12 nf=0
+   enum roomeqwizard.TargetShape = SUBWOOFER
+   str '.3'
+class roomeqwizard.XOverChoice                   flags=0x12 nf=0
+   obj roomeqwizard.MeasData
+   obj roomeqwizard.MeasData
+   prim alignSPLOffsetCumulative=0.0 @
+   prim alignSPLOffsetLast=0.0 @
+   prim asdOffset=0.0 @
+   prim audioDataLength=0 @
+   prim audioDataOffset=0 @
+   prim calR=0.0 @
+   prim dBcOffset=-28.5684757232666 @
+   prim dataLength=1216 @
+   prim endFreq=23713.736328125 @
+   prim fdwEndFreq=0.0 @
+   prim fdwFrac=0.0 @
+   prim fdwPPO=0 @
+   prim fdwStartFreq=0.0 @
+   prim freqStep=0.0 @
+   prim hfFallSlope=0.5 @
+   prim hfFallStart=1000 @
+   prim impedanceCal=1.0 @
+   prim inputR=0.0 @
+   prim isFromRTA=True @
+   prim isLogSpaced=True @
+   prim lastUnwrapOffsetFreq=0.0 @
+   prim leadsR=0.0 @
+   prim lfRiseEnd=20 @
+   prim lfRiseSlope=1.0 @
+   prim lfRiseStart=200 @
+   prim logStep=1.007246412223704 @
+   prim logStepLog=0.007220283130832763 @
+   prim numSweeps=0 @
+   prim octaveFrac=0.0 @
+   prim phaseIsUnwrapped=False @
+   prim ppo=96 @
+   prim refR=0.0 @
+   prim roomHeight=2.4 @
+   prim roomLength=5.0 @
+   prim roomWidth=4.0 @
+   prim sampleRate=48000 @
+   prim sourceFileDate=1786911037357 @
+   prim sourceType=8 @
+   prim speakerBassMgmtShape=0 @
+   prim speakerCutoff=80 @
+   prim startFreq=3.662109375 @
+   prim useBars=False @
+   prim validEndFreq=23713.736328125 @
+   prim validStartFreq=3.662109375 @
+   prim xOverHPCutoff=100 @
+   prim xOverLPCutoff=1000 @
+   obj java.lang.Double
+   obj java.lang.Double
+   obj roomeqwizard.FilterSet
+   objarr [Lroomeqwizard.Filter; len=28 @roomeqwizard.MeasData.filterSet.roomeqwizard.FilterSet.filters
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   objarr [Lroomeqwizard.XOverFilter; len=2 @roomeqwizard.MeasData.filterSet.roomeqwizard.FilterSet.xOverFilters
+   obj roomeqwizard.XOverFilter
+   obj roomeqwizard.FilterSet
+   str '1.8.0_422 64-bit'
+   str '65536-point 1/48 octave RTA using Rectangular window and 124 averages\n\nInput RMS 83.30 dB\n81.7 dB C, 80.2 dB A'
+   obj roomeqwizard.CalData
+   prim inverseCSelected=False @roomeqwizard.MeasData.meterCal
+   arr [F  len=615   @roomeqwizard.MeasData.meterCal.roomeqwizard.CalData.freqArray [0]=   10.0540 [last]=20016.8164
+   arr [F  len=615   @roomeqwizard.MeasData.meterCal.roomeqwizard.CalData.gainArray [0]=   -5.0725 [last]=    0.1154
+   obj roomeqwizard.CalData
+   str 'windows 11'
+   str 'Headphones (Ford Ranger), no output selected, L+R, volume: no control'
+   arr [F  len=1216  @roomeqwizard.MeasData.rawValues [0]=   45.1234 [last]=   22.9227
+   obj java.lang.Double
+   obj java.awt.Color
+   str 'front left'
+   str '65536-point 1/48 octave RTA using Rectangular window and 124 averages\n'
+   str 'EXCL: Microphone (Umik-1  Gain: 18dB  ), MICROPHONE (Master Volume), R, volume: 1.000'
+   obj java.lang.Double
+   arr [F  len=1216  @roomeqwizard.MeasData.splValues [0]=   45.1234 [last]=   22.9227
+   obj java.lang.Double
+   obj roomeqwizard.MeasData
+   obj roomeqwizard.MeasData
+   prim alignSPLOffsetCumulative=0.0 @
+   prim alignSPLOffsetLast=0.0 @
+   prim asdOffset=0.0 @
+   prim audioDataLength=0 @
+   prim audioDataOffset=0 @
+   prim calR=0.0 @
+   prim dBcOffset=-30.290163040161133 @
+   prim dataLength=1216 @
+   prim endFreq=23713.736328125 @
+   prim fdwEndFreq=0.0 @
+   prim fdwFrac=0.0 @
+   prim fdwPPO=0 @
+   prim fdwStartFreq=0.0 @
+   prim freqStep=0.0 @
+   prim hfFallSlope=0.5 @
+   prim hfFallStart=1000 @
+   prim impedanceCal=1.0 @
+   prim inputR=0.0 @
+   prim isFromRTA=True @
+   prim isLogSpaced=True @
+   prim lastUnwrapOffsetFreq=0.0 @
+   prim leadsR=0.0 @
+   prim lfRiseEnd=20 @
+   prim lfRiseSlope=1.0 @
+   prim lfRiseStart=200 @
+   prim logStep=1.007246412223704 @
+   prim logStepLog=0.007220283130832763 @
+   prim numSweeps=0 @
+   prim octaveFrac=0.0 @
+   prim phaseIsUnwrapped=False @
+   prim ppo=96 @
+   prim refR=0.0 @
+   prim roomHeight=2.4 @
+   prim roomLength=5.0 @
+   prim roomWidth=4.0 @
+   prim sampleRate=48000 @
+   prim sourceFileDate=1786911103007 @
+   prim sourceType=8 @
+   prim speakerBassMgmtShape=0 @
+   prim speakerCutoff=80 @
+   prim startFreq=3.662109375 @
+   prim useBars=False @
+   prim validEndFreq=23713.736328125 @
+   prim validStartFreq=3.662109375 @
+   prim xOverHPCutoff=100 @
+   prim xOverLPCutoff=1000 @
+   obj java.lang.Double
+   obj java.lang.Double
+   obj roomeqwizard.FilterSet
+   objarr [Lroomeqwizard.Filter; len=28 @roomeqwizard.MeasData.filterSet.roomeqwizard.FilterSet.filters
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   objarr [Lroomeqwizard.XOverFilter; len=2 @roomeqwizard.MeasData.filterSet.roomeqwizard.FilterSet.xOverFilters
+   obj roomeqwizard.XOverFilter
+   obj roomeqwizard.FilterSet
+   str '1.8.0_422 64-bit'
+   str '65536-point 1/48 octave RTA using Rectangular window and 112 averages\n\nInput RMS 83.17 dB\n82.0 dB C, 75.6 dB A'
+   obj roomeqwizard.CalData
+   prim inverseCSelected=False @roomeqwizard.MeasData.meterCal
+   arr [F  len=615   @roomeqwizard.MeasData.meterCal.roomeqwizard.CalData.freqArray [0]=   10.0540 [last]=20016.8164
+   arr [F  len=615   @roomeqwizard.MeasData.meterCal.roomeqwizard.CalData.gainArray [0]=   -5.0725 [last]=    0.1154
+   obj roomeqwizard.CalData
+   str 'windows 11'
+   str 'Headphones (Ford Ranger), no output selected, L+R, volume: no control'
+   arr [F  len=1216  @roomeqwizard.MeasData.rawValues [0]=   47.7298 [last]=   15.4884
+   obj java.lang.Double
+   obj java.awt.Color
+   str 'rear right'
+   str '65536-point 1/48 octave RTA using Rectangular window and 112 averages\n'
+   str 'EXCL: Microphone (Umik-1  Gain: 18dB  ), MICROPHONE (Master Volume), R, volume: 1.000'
+   obj java.lang.Double
+   arr [F  len=1216  @roomeqwizard.MeasData.splValues [0]=   47.7298 [last]=   15.4884
+   obj java.lang.Double
+   obj roomeqwizard.MeasData
+   obj roomeqwizard.MeasData
+   prim alignSPLOffsetCumulative=0.0 @
+   prim alignSPLOffsetLast=0.0 @
+   prim asdOffset=0.0 @
+   prim audioDataLength=0 @
+   prim audioDataOffset=0 @
+   prim calR=0.0 @
+   prim dBcOffset=-26.68042755126953 @
+   prim dataLength=1216 @
+   prim endFreq=23713.736328125 @
+   prim fdwEndFreq=0.0 @
+   prim fdwFrac=0.0 @
+   prim fdwPPO=0 @
+   prim fdwStartFreq=0.0 @
+   prim freqStep=0.0 @
+   prim hfFallSlope=0.5 @
+   prim hfFallStart=1000 @
+   prim impedanceCal=1.0 @
+   prim inputR=0.0 @
+   prim isFromRTA=True @
+   prim isLogSpaced=True @
+   prim lastUnwrapOffsetFreq=0.0 @
+   prim leadsR=0.0 @
+   prim lfRiseEnd=20 @
+   prim lfRiseSlope=1.0 @
+   prim lfRiseStart=200 @
+   prim logStep=1.007246412223704 @
+   prim logStepLog=0.007220283130832763 @
+   prim numSweeps=0 @
+   prim octaveFrac=0.0 @
+   prim phaseIsUnwrapped=False @
+   prim ppo=96 @
+   prim refR=0.0 @
+   prim roomHeight=2.4 @
+   prim roomLength=5.0 @
+   prim roomWidth=4.0 @
+   prim sampleRate=48000 @
+   prim sourceFileDate=1786911171127 @
+   prim sourceType=8 @
+   prim speakerBassMgmtShape=0 @
+   prim speakerCutoff=80 @
+   prim startFreq=3.662109375 @
+   prim useBars=False @
+   prim validEndFreq=23713.736328125 @
+   prim validStartFreq=3.662109375 @
+   prim xOverHPCutoff=100 @
+   prim xOverLPCutoff=1000 @
+   obj java.lang.Double
+   obj java.lang.Double
+   obj roomeqwizard.FilterSet
+   objarr [Lroomeqwizard.Filter; len=28 @roomeqwizard.MeasData.filterSet.roomeqwizard.FilterSet.filters
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   objarr [Lroomeqwizard.XOverFilter; len=2 @roomeqwizard.MeasData.filterSet.roomeqwizard.FilterSet.xOverFilters
+   obj roomeqwizard.XOverFilter
+   obj roomeqwizard.FilterSet
+   str '1.8.0_422 64-bit'
+   str '65536-point 1/48 octave RTA using Rectangular window and 120 averages\n\nInput RMS 81.01 dB\n80.0 dB C, 74.7 dB A'
+   obj roomeqwizard.CalData
+   prim inverseCSelected=False @roomeqwizard.MeasData.meterCal
+   arr [F  len=615   @roomeqwizard.MeasData.meterCal.roomeqwizard.CalData.freqArray [0]=   10.0540 [last]=20016.8164
+   arr [F  len=615   @roomeqwizard.MeasData.meterCal.roomeqwizard.CalData.gainArray [0]=   -5.0725 [last]=    0.1154
+   obj roomeqwizard.CalData
+   str 'windows 11'
+   str 'Headphones (Ford Ranger), no output selected, L+R, volume: no control'
+   arr [F  len=1216  @roomeqwizard.MeasData.rawValues [0]=   39.1205 [last]=   14.3808
+   obj java.lang.Double
+   obj java.awt.Color
+   str 'rear left'
+   str '65536-point 1/48 octave RTA using Rectangular window and 120 averages\n'
+   str 'EXCL: Microphone (Umik-1  Gain: 18dB  ), MICROPHONE (Master Volume), R, volume: 1.000'
+   obj java.lang.Double
+   arr [F  len=1216  @roomeqwizard.MeasData.splValues [0]=   39.1205 [last]=   14.3808
+   obj java.lang.Double
+   obj roomeqwizard.MeasData
+   obj roomeqwizard.MeasData
+   prim alignSPLOffsetCumulative=0.0 @
+   prim alignSPLOffsetLast=0.0 @
+   prim asdOffset=0.0 @
+   prim audioDataLength=0 @
+   prim audioDataOffset=0 @
+   prim calR=0.0 @
+   prim dBcOffset=-29.093618392944336 @
+   prim dataLength=1216 @
+   prim endFreq=23713.736328125 @
+   prim fdwEndFreq=0.0 @
+   prim fdwFrac=0.0 @
+   prim fdwPPO=0 @
+   prim fdwStartFreq=0.0 @
+   prim freqStep=0.0 @
+   prim hfFallSlope=0.5 @
+   prim hfFallStart=1000 @
+   prim impedanceCal=1.0 @
+   prim inputR=0.0 @
+   prim isFromRTA=True @
+   prim isLogSpaced=True @
+   prim lastUnwrapOffsetFreq=0.0 @
+   prim leadsR=0.0 @
+   prim lfRiseEnd=20 @
+   prim lfRiseSlope=1.0 @
+   prim lfRiseStart=200 @
+   prim logStep=1.007246412223704 @
+   prim logStepLog=0.007220283130832763 @
+   prim numSweeps=0 @
+   prim octaveFrac=0.0 @
+   prim phaseIsUnwrapped=False @
+   prim ppo=96 @
+   prim refR=0.0 @
+   prim roomHeight=2.4 @
+   prim roomLength=5.0 @
+   prim roomWidth=4.0 @
+   prim sampleRate=48000 @
+   prim sourceFileDate=1786911256117 @
+   prim sourceType=8 @
+   prim speakerBassMgmtShape=0 @
+   prim speakerCutoff=80 @
+   prim startFreq=3.662109375 @
+   prim useBars=False @
+   prim validEndFreq=23713.736328125 @
+   prim validStartFreq=3.662109375 @
+   prim xOverHPCutoff=100 @
+   prim xOverLPCutoff=1000 @
+   obj java.lang.Double
+   obj java.lang.Double
+   obj roomeqwizard.FilterSet
+   objarr [Lroomeqwizard.Filter; len=28 @roomeqwizard.MeasData.filterSet.roomeqwizard.FilterSet.filters
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   obj roomeqwizard.Filter
+   objarr [Lroomeqwizard.XOverFilter; len=2 @roomeqwizard.MeasData.filterSet.roomeqwizard.FilterSet.xOverFilters
+   obj roomeqwizard.XOverFilter
+   obj roomeqwizard.FilterSet
+   str '1.8.0_422 64-bit'
+   str '65536-point 1/48 octave RTA using Rectangular window and 123 averages\n\nInput RMS 82.91 dB\n81.3 dB C, 79.5 dB A'
+   obj roomeqwizard.CalData
+   prim inverseCSelected=False @roomeqwizard.MeasData.meterCal
+   arr [F  len=615   @roomeqwizard.MeasData.meterCal.roomeqwizard.CalData.freqArray [0]=   10.0540 [last]=20016.8164
+   arr [F  len=615   @roomeqwizard.MeasData.meterCal.roomeqwizard.CalData.gainArray [0]=   -5.0725 [last]=    0.1154
+   obj roomeqwizard.CalData
+   str 'windows 11'
+   str 'Headphones (Ford Ranger), no output selected, L+R, volume: no control'
+   arr [F  len=1216  @roomeqwizard.MeasData.rawValues [0]=   40.6776 [last]=   24.4833
+   obj java.lang.Double
+   obj java.awt.Color
+   str 'front right'
+   str '65536-point 1/48 octave RTA using Rectangular window and 123 averages\n'
+   str 'EXCL: Microphone (Umik-1  Gain: 18dB  ), MICROPHONE (Master Volume), R, volume: 1.000'
+   obj java.lang.Double
+   arr [F  len=1216  @roomeqwizard.MeasData.splValues [0]=   40.6776 [last]=   24.4833
+   obj java.lang.Double
+   obj roomeqwizard.MeasData

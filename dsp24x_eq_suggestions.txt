@@ -1,0 +1,189 @@
+# PRV DSP 2.4X EQ suggestions — match in-car Harman target
+
+Source: 4 individual speakers (FL, RR, RL, FR) each measured at the DRIVER
+listening position using the moving-microphone (spatial averaging) method,
+Aug 16 2026, 48 kHz, 1/48-octave RTA (~115+ averages each). The driver-position
+total response is the incoherent POWER SUM of the four (10*log10(sum 10^(spl/10)))
+because the speakers are spatially separated (RTA is magnitude-only, no phase).
+
+Target curve (classic in-car "Harman"/Audiofrog):
+  +9 dB 20–60 Hz -> taper to 0 dB by 160 Hz -> flat 160 Hz–3 kHz ->
+  gentle rolloff to -6 dB @ 20 kHz
+
+## Per-speaker response at driver position (dB SPL), for reference
+  Hz    FL    RR    RL    FR   | total   target
+  ----  ----  ----  ----  ---- | -----   ------
+   25   53.1  51.4  53.0  53.3 |  58.8    +9
+   40   53.2  51.9  48.7  56.3 |  59.4    +9
+   63   48.3  57.5  53.0  56.1 |  60.9    +8.6
+  100   53.8  53.4  49.6  48.8 |  58.0    +4.3
+  160   53.7  65.6  61.5  60.7 |  68.1     0
+  250   60.7  56.4  60.3  57.2 |  65.1     0
+  400   59.5  55.0  54.6  52.1 |  62.2     0
+  630   52.0  52.4  56.5  52.4 |  59.8     0
+ 1000   53.4  48.9  48.7  48.8 |  56.5     0
+ 1600   43.8  51.2  47.6  43.6 |  53.8     0
+ 2500   47.3  46.9  44.0  50.1 |  53.6     0
+ 4000   58.0  47.6  43.8  56.0 |  60.4    -0.9
+ 6300   60.8  50.3  49.3  57.7 |  63.0    -2.3
+10000   56.0  56.1  53.9  55.5 |  61.5    -3.8
+16000   52.6  40.9  42.8  54.7 |  57.1    -5.3
+
+## Validity check vs noise floor
+"baseline" (#0) was an RTA of ambient noise with no sound playing. Used as a
+noise reference to check the speaker captures aren't noise-contaminated:
+(signal = driver-position power sum minus the noise floor)
+
+  Hz   noise   signal   margin
+  25   50.4    58.8     +8.3  <- tightest band
+  40   47.5    59.4    +11.9
+  63+  <32     ...       >=22 dB
+All four speakers are measured well above the noise floor; the low end is
+usable even at 25 Hz (+8 dB). The noise rises at low frequencies, so the
++6-7 dB bass boost will also lift road/engine rumble - expect somewhat
+louder low-freq noise when applying the Harman bass shelf.
+
+## 1) Recommended: 15-band graphic EQ (input, both channels), anchored 1 kHz
+    All values fit within the DSP's +/-12 dB limit.
+
+  band (Hz)   EQ (dB)   notes
+  --------    ------    ------------------------------
+    25         +6.7     bass shelf (watch headroom)
+    40         +6.1
+    63         +4.2
+   100         +2.9
+   160        -11.6     near the limit - comes from rear 160 Hz hump
+   250         -8.6
+   400         -5.7
+   630         -3.3
+  1000          0.0
+  1600         +2.8     fills the 1.6 kHz dip (all speakers dip)
+  2500         +2.9
+  4000         -4.8
+  6300         -8.8     front speakers' HF peak
+ 10000         -8.8
+ 16000         -5.9
+
+## 2) Hybrid (recommended): graphic EQ + 1 PEQ per output
+    Fix the two per-speaker problems with the per-output PEQ instead of the
+    global graphic EQ - keeps the shared EQ gentle and limits phase smear.
+
+  Per-output PEQ (each output has 1 PEQ; enter the same on each channel):
+    REAR outputs (RR/RL):  freq 160 Hz, gain -6 dB, Q 1.5   (rear 160 Hz hump)
+    FRONT outputs (FL/FR): freq 5600 Hz, gain -5 dB, Q 2.0  (front HF peak)
+
+  Then the graphic EQ handles the shared total shape:
+    25 +6.7   40 +6.1   63 +4.2   100 +2.9   160 -5.5   250 -4.0
+    400 -3.0  630 -2.0  1000 0    1600 +2.0  2500 +2.0  4000 -2.0
+    6300 -4.0 10000 -4.0 16000 -3.0
+
+  (If the DSP's per-output PEQ is the only correction you want for a seat
+  imbalance, remember it applies to that whole output channel, not just the
+  driver position.)
+
+## 3) All-cut / headroom variant of table 1
+  Shift the whole curve down 6.7 dB so nothing needs boost, then add +6.7 dB
+  to the output gains (or master level) so loudness is unchanged. This keeps
+  all graphic-EQ actions as attenuation -> no risk of clipping from the EQ,
+  only from the extra output gain, which you control.
+
+  band (Hz)   EQ (dB)   notes
+  --------    ------    ------------------------------
+    25          0.0
+    40         -0.6
+    63         -2.5
+   100         -3.8
+   160        -12.0*    wanted -18.3, clamped (residual -6.3 dB hump)
+   250        -12.0*    wanted -15.3, clamped (residual -3.3 dB)
+   400        -12.0*    wanted -12.4, clamped (residual -0.4 dB)
+   630        -10.0
+  1000         -6.7
+  1600         -3.9
+  2500         -3.8
+  4000        -11.5
+  6300        -12.0*    wanted -15.5, clamped (residual -3.5 dB peak)
+ 10000        -12.0*    wanted -15.5, clamped (residual -3.5 dB peak)
+ 16000        -12.0*    wanted -12.6, clamped (residual -0.6 dB)
+  * = clamped at the DSP's -12 dB graphic-EQ limit. The residual hump/peak
+      remaining can be finished with the per-output PEQ (see below).
+
+  Output gains: add +6.7 dB to every output (inside the +15 dB limit).
+
+  If you want the full correction AND no clipping, combine all-cut graphic EQ
+  (above) with per-output PEQ for the residual regions:
+    REAR  outputs:  PEQ 160 Hz, -6 dB, Q 1.5   (covers 160+250 clamp residue)
+    FRONT outputs:  PEQ 8000 Hz, -4 dB, Q 2.0  (covers 6300+10000 clamp residue)
+  Now the target is essentially fully achieved with zero graphic-EQ boosts.
+
+## 4) Limited-boost hybrid (max +3 dB, recommended middle ground)
+  Shift Table 1 down by 3.7 dB so the biggest boost is +3.0 dB (not +6.7),
+  then add +3.7 dB to output gains. Keeps a little bass/EQ boost for
+  loudness, avoids the deep -15 dB demands, stays inside the graphic-EQ
+  limits by tiny margins.
+
+  band (Hz)   EQ (dB)   notes
+  --------    ------    ------------------------------
+    25         +3.0     biggest boost (cap), bass shelf
+    40         +2.4
+    63         +0.5
+   100         -0.8
+   160        -12.0*    wanted -15.3, clamped (residual -3.3 dB hump)
+   250        -12.0*    wanted -12.3, clamped (residual -0.3 dB)
+   400         -9.4
+   630         -7.0
+  1000         -3.7
+  1600         -0.9
+  2500         -0.8
+  4000         -8.5
+  6300        -12.0*    wanted -12.5, clamped (residual -0.5 dB)
+ 10000        -12.0*    wanted -12.5, clamped (residual -0.5 dB)
+ 16000         -9.6
+  * = clamped at the DSP's -12 dB graphic-EQ limit.
+
+  Output gains: add +3.7 dB to every output.
+
+  The only audible residual is the 160 Hz hump (-3.3 dB not cut). If you
+  want it fully gone, add a rear-output PEQ: 160 Hz, -3.5 dB, Q 1.5.
+  The 250/6300/10000 residuals are <=0.5 dB - inaudible.
+
+### Table 4b) Per-speaker PEQ (1 per output) to add on top of Table 4
+  Each speaker's deviation from the target AFTER the global graphic EQ is
+  applied (residual), reduced to the single most useful band per output.
+
+  PRIMARY - closes the 160-250 Hz hump the global EQ couldn't fully cut
+  (rears are the cause; cutting them here keeps FL's healthy low-mid):
+    RR output:  PEQ  freq 160 Hz,  gain -8 dB, Q 1.5
+    RL output:  PEQ  freq 200 Hz,  gain -6 dB, Q 1.5
+    FR output:  PEQ  freq 160 Hz,  gain -5 dB, Q 1.5
+    FL output:  PEQ  freq 100 Hz,  gain +5 dB, Q 1.0   (FL weak 63-160 Hz,
+                                            fills it to target; optional)
+
+  OPTIONAL tonal balance (use instead of primary on that output - one PEQ
+  per output!):
+    RL output:  PEQ  freq 4000 Hz, gain +6 dB, Q 1.8  (RL 4 kHz dip -8.8 dB)
+    FR output:  PEQ  freq 16000 Hz,gain -4 dB, Q 2.0  (FR top-end sparkle)
+
+  Notes:
+  - These values are the residuals AFTER the global Table 4 EQ, so they add,
+    they don't double up the -12 dB graphic cuts.
+  - RR still needs -8 dB at 160: that is the leftover hump, worth cutting.
+  - Boosts (FL 100 Hz, RL 4 kHz) are safe here because they are per-output
+    and modest; set limiter threshold ~-6 dB as a precaution.
+
+## Workflow
+  1. Enter graphic EQ from table 1 (or hybrid table 2).
+  2. Set output gains so driver-position level is unchanged (music loud).
+  3. Re-measure ALL 4 speakers at the driver position, power-sum them (or
+     re-RTA the full system), and iterate until within ~+/-3 dB of target.
+  4. If bass boost makes the system clip, reduce the target bass to +6 dB
+     (lower the 25/40/63/100 bands by ~3 dB).
+  5. The "baseline" RTA (#0) is ambient noise with no sound playing. It was
+     NOT used for EQ - only as a noise-floor/validity reference (see above).
+
+## Caveats
+  - RTA is magnitude-only: use power sum, not complex sum, for the total.
+  - Measurements use the moving-microphone method, so the response is a
+    spatial average - the 1.6 kHz dip and the rears' 160 Hz hump are real
+    system behavior, not mic-position comb effects; the deep cuts are safe.
+  - Re-verify after applying EQ: RTA with engine/HVAC off, same moving-mic
+    sweep, mic at ear height.
