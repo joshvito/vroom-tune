@@ -187,3 +187,39 @@ louder low-freq noise when applying the Harman bass shelf.
     system behavior, not mic-position comb effects; the deep cuts are safe.
   - Re-verify after applying EQ: RTA with engine/HVAC off, same moving-mic
     sweep, mic at ear height.
+
+## Verification: Hybrid #2 applied (Aug 18 2026)
+Applied option 2 (PEQ rear 160 Hz -6 dB Q1.5 + front 5600 Hz -5 dB Q2.0, and
+its graphic EQ table), then re-measured each driver at the driver position
+(moving mic) plus combined FR+FL and RR+RL captures. Capture order in
+`2020-ford-ranger-rta-measurements-hybrid.mdat`: FR, FL, RR, RL, FR+FL, RR+RL.
+
+Residual EQ vs target (anchored 1 kHz), before -> after:
+  band  before  after   |  band   before  after
+   25   +6.7    +1.1    |  1600   +2.8    -0.5
+   40   +6.1    -8.7    |  2500   +2.9    +2.1
+   63   +4.2    -9.4    |  4000   -4.8    -1.9
+  100   +2.9    -2.9    |  6300   -8.8    +0.1
+  160  -11.6    -4.5    | 10000   -8.8    -3.0
+  250   -8.6    -2.0    | 16000   -5.9    -2.8
+  400   -5.7    -0.8    |   EQ range: -11.6..+6.7 -> -9.4..+2.1
+  630   -3.3    +0.3    |
+ 1000    0.0     0.0    |
+
+Findings:
+- 25 Hz, 160 Hz, 6300 Hz fixed; most bands now within ~+/-3 dB of target.
+- 40/63 Hz OVERCORRECTED. The four-speaker power sum (-8.7/-9.4) and the
+  combined FR+FL / RR+RL capture (-10.8/-8.8) agree. All four speakers read
+  13-16 dB above their 100 Hz level -> cabin pressure-mode resonance excited
+  by the boost, not predicted by the no-EQ model.
+  ACTION: set graphic EQ 40 Hz to -4 dB and 63 Hz to -5 dB (down from
+  +6.1/+4.2). Keep 25 Hz at +6.7 (on target). Re-measure and re-verify.
+- 160 Hz: single-driver power sum still says -4.5, but the RR+RL capture is
+  ~7 dB below the rear power sum -> the rear PEQ IS working; full-capture
+  residual is +0.5. No further cut. (Individual-driver power sums overestimate
+  the real combined level around the rear 160 Hz hump.)
+- Consistency: FR+FL capture matches the FR/FL power sum within ~+/-3 dB;
+  RR+RL runs -6.9 dB low at 160 and -4.6 at 400 vs its pair sum.
+- Front/rear 25 Hz imbalance seen in individual captures (rears ~10-17 dB
+  lower than fronts at 25 Hz) does NOT show up in the full-capture total
+  (-1.0 dB residual) - the fronts carry the sub-bass; not a tuning problem.

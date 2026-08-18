@@ -70,6 +70,26 @@ FR 60.7 vs FL 53.7 @160); fronts own the 4-6.3 kHz peak; all share a
    RR 160 -8 Q1.5 | RL 200 -6 Q1.5 | FR 160 -5 Q1.5 | FL 100 +5 Q1.0 (opt).
    Optional: RL 4k +6 Q1.8, FR 16k -4 Q2.0.
 
+## Hybrid #2 verification (Aug 18 2026)
+Applied option 2 (PEQ rear 160 Hz -6 dB Q1.5 + front 5600 Hz -5 dB Q2.0 +
+its graphic EQ table), re-measured each driver + combined front/rear.
+Source: `data/REW-data/2020-ford-ranger-rta-measurements-hybrid.mdat`
+(388,169 B). Capture order: FR, FL, RR, RL, FR+FL, RR+RL. Extracted to
+`analysis/measurements_hybrid.pkl` (6 measurements).
+- Residual EQ range improved: -11.6..+6.7 -> -9.4..+2.1 dB.
+  25/160/6300 now on target; most bands within +/-3 dB.
+- 40/63 Hz OVERCORRECTED (cabin resonance excited by the bass boost):
+  four-speaker power sum residual -8.7/-9.4, full-capture (FR+FL & RR+RL)
+  residual -10.8/-8.8. ACTION: set graphic EQ 40 Hz -> -4 dB, 63 Hz -> -5 dB;
+  keep 25 Hz +6.7. Re-measure and re-verify.
+- 160 Hz: full-capture residual +0.5 vs single-driver power sum -4.5 ->
+  rear PEQ is working; no further cut (single-driver sums overestimate the
+  rear hump in the real combined signal).
+- Consistency: FR+FL capture vs FR/FL power sum within ~+/-3 dB; RR+RL runs
+  -6.9 dB low @160 and -4.6 dB @400 vs pair sum.
+- Front/rear 25 Hz gap in individual captures (rears ~10-17 dB lower) does
+  not appear in the full-capture total (-1.0) - fronts carry sub-bass.
+
 ## Files
 - `../../tools/javastream.py` - REW mdat stream walker (shared)
 - `../../tools/extract.py` - pulls measurements out of an mdat into measurements.pkl
