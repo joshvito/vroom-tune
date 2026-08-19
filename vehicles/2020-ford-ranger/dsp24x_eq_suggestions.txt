@@ -261,3 +261,32 @@ Findings:
   there instead of iterating EQ.
 - Consistency: ALL4 capture vs four-speaker power sum within ~+/-3.8 dB on all
   bands (worst: 40 +3.8, 160 -3.5, 400 -2.6).
+
+## Verification: 40/63 -> +1 applied (Aug 19 2026, iteration 3 - CONVERGED)
+Applied the iteration-2 action (graphic EQ 40 Hz -> +1, 63 Hz -> +1; 25 Hz
++6.7, 100 Hz +2.9 unchanged). Re-measured with the same 7-capture order as
+hybrid2 in `2020-ford-ranger-rta-measurements-hybrid3.mdat`: FR, FL, RR, RL,
+FR+FL, RR+RL, ALL4.
+
+Residual EQ vs target (anchored 1 kHz), ALL4 capture:
+  band   residual  |  band   residual
+   25    +2.7      |  1600   +2.6
+   40    -4.9      |  2500   +2.8
+   63    -1.9      |  4000   -0.4
+  100    +3.1      |  6300   +0.2
+  160    +1.7      | 10000   -2.2
+  250    +0.3      | 16000   -2.4
+  400    +1.8      |  (four-speaker power sum agrees within -3.5..+3.1;
+  630    +3.9      |   ALL4 vs powsum within +3.5/-3.1 on all bands)
+ 1000     0.0      |
+
+Findings:
+- CONVERGED: every band within ~+/-5 dB of target, most within +/-3 dB, by
+  both the four-speaker power sum and the ALL4 capture. The 25-63 Hz region
+  stabilized (no more ~10 dB cross-session swings).
+- 40 Hz is borderline: -4.9 dB below target on ALL4 (-3.0 four-spk). The
+  cabin mode is steep here (slope ~-1.7 to -2.7), so a small change has a
+  large effect. OPTIONAL trim: set graphic EQ 40 Hz to +3 dB for one more
+  confirm run. It may overshoot; the current setting is within tolerance.
+- 630 (+3.9) and 1600/2500 (+2.6/+2.8) run slightly hot - acceptable.
+- No further EQ iterations needed unless 40 Hz is trimmed and re-verified.

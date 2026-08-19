@@ -108,6 +108,20 @@ RR+RL, ALL4. Extracted to `analysis/measurements_hybrid2.pkl` (7 measurements).
   full-system captures and accept +/-5 dB tolerance at 25-63 Hz if they bounce.
 - Consistency: ALL4 vs power sum within ~+/-3.8 dB (worst: 40 +3.8, 160 -3.5).
 
+## 40/63 -> +1 verification (Aug 19 2026, iteration 3 - CONVERGED)
+Applied 40 -> +1, 63 -> +1 (kept 25 +6.7, 100 +2.9). Source: `data/REW-data/
+2020-ford-ranger-rta-measurements-hybrid3.mdat`, same 7-capture order
+(FR, FL, RR, RL, FR+FL, RR+RL, ALL4). Extracted to
+`analysis/measurements_hybrid3.pkl` (7 measurements).
+- CONVERGED: every band within ~+/-5 dB of target (most +/-3) by both the
+  four-speaker power sum and ALL4 capture; ALL4 vs powsum within +3.5/-3.1
+  on all bands. 25-63 Hz region stabilized (no 10 dB cross-session swings).
+- ALL4 residual: 25 +2.7, 40 -4.9, 63 -1.9, 100 +3.1, 160 +1.7, 630 +3.9,
+  1600/2500 +2.6/+2.8, rest within ~+/-2.4.
+- OPTIONAL final trim: 40 Hz is -4.9 below target (ALL4). Mode is steep
+  (slope ~-1.7 to -2.7). If desired, set 40 Hz -> +3 and do one confirm run;
+  may overshoot, current setting within tolerance. Otherwise done.
+
 ## Files
 - `../../tools/javastream.py` - REW mdat stream walker (shared)
 - `../../tools/extract.py` - pulls measurements out of an mdat into measurements.pkl
