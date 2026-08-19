@@ -284,9 +284,39 @@ Findings:
 - CONVERGED: every band within ~+/-5 dB of target, most within +/-3 dB, by
   both the four-speaker power sum and the ALL4 capture. The 25-63 Hz region
   stabilized (no more ~10 dB cross-session swings).
-- 40 Hz is borderline: -4.9 dB below target on ALL4 (-3.0 four-spk). The
-  cabin mode is steep here (slope ~-1.7 to -2.7), so a small change has a
-  large effect. OPTIONAL trim: set graphic EQ 40 Hz to +3 dB for one more
-  confirm run. It may overshoot; the current setting is within tolerance.
+- 40 Hz is borderline: -4.9 dB ABOVE target on ALL4 (-3.0 four-spk).
+  NOTE: negative residual = measured above target = needs a CUT (this was
+  mislabeled "below target" and +3 was suggested in error; see round 4).
 - 630 (+3.9) and 1600/2500 (+2.6/+2.8) run slightly hot - acceptable.
 - No further EQ iterations needed unless 40 Hz is trimmed and re-verified.
+
+## Verification: 40 Hz -> +3 applied (Aug 19 2026, iteration 4)
+Applied the (incorrect) round-3 trim: graphic EQ 40 Hz +1 -> +3. Same 7-capture
+order in `2020-ford-ranger-rta-measurements-hybrid4.mdat`:
+FR, FL, RR, RL, FR+FL, RR+RL, ALL4.
+
+Residual EQ vs target (anchored 1 kHz), ALL4 capture:
+  band   residual  |  band   residual
+   25    +1.8      |  1600   +2.0
+   40    -6.2      |  2500   +2.6
+   63    -2.5      |  4000   -1.1
+  100    +1.9      |  6300   +0.8
+  160    +1.2      | 10000   -1.7
+  250    +0.8      | 16000   -2.1
+  400    +1.7      |  (four-speaker power sum agrees within -3.6..+3.8;
+  630    +3.8      |   ALL4 vs powsum within +3.7/-2.6 on all bands)
+ 1000     0.0      |
+
+Findings:
+- CORRECTION of round 3: negative residual = measured ABOVE target (needs a
+  cut). Round 3's -4.9 at 40 Hz meant it was already hot; boosting to +3 was
+  the wrong direction. Round 4 confirms: 40 Hz now reads -6.2 (ALL4) / -3.6
+  (four-spk), further above target.
+- 40 Hz readings are NOT monotonic with the setting: +8.4 @ -4 (below target),
+  -4.9 @ +1, -6.2 @ +3 (above target). The band is dominated by run-to-run
+  measurement variance; no clean linear model fits (slope flips).
+- Everything else remains converged and stable within ~+/-4 dB (worst 630
+  +3.8, 2500 +2.6).
+  ACTION: set graphic EQ 40 Hz back to +1 (or 0). Before changing anything,
+  take 2-3 repeat ALL4 captures to measure the run-to-run bounce at 40 Hz -
+  if it swings >~5 dB, treat the band as within tolerance and stop iterating.

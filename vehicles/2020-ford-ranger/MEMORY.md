@@ -122,6 +122,20 @@ Applied 40 -> +1, 63 -> +1 (kept 25 +6.7, 100 +2.9). Source: `data/REW-data/
   (slope ~-1.7 to -2.7). If desired, set 40 Hz -> +3 and do one confirm run;
   may overshoot, current setting within tolerance. Otherwise done.
 
+## 40 Hz -> +3 verification (Aug 19 2026, iteration 4)
+Applied the (incorrect) round-3 trim: 40 Hz +1 -> +3. Source:
+`data/REW-data/2020-ford-ranger-rta-measurements-hybrid4.mdat`, same
+7-capture order. Extracted to `analysis/measurements_hybrid4.pkl`.
+- CORRECTION: negative residual = measured ABOVE target (needs CUT). Round 3's
+  -4.9 was hot, not below target; the +3 boost was the wrong direction.
+  Round 4: 40 Hz = -6.2 (ALL4) / -3.6 (four-spk), even hotter.
+- 40 Hz readings are NOT monotonic with setting: +8.4 @ -4, -4.9 @ +1,
+  -6.2 @ +3 -> dominated by run-to-run variance; no clean model fits.
+- Everything else converged and stable within ~+/-4 dB (630 +3.8, 2500 +2.6).
+- ACTION: set 40 Hz back to +1 (or 0). Take 2-3 repeat ALL4 captures first to
+  measure the run-to-run bounce at 40 Hz; if it swings >~5 dB, treat as
+  within tolerance and stop iterating.
+
 ## Files
 - `../../tools/javastream.py` - REW mdat stream walker (shared)
 - `../../tools/extract.py` - pulls measurements out of an mdat into measurements.pkl
