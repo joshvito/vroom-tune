@@ -90,6 +90,24 @@ Source: `data/REW-data/2020-ford-ranger-rta-measurements-hybrid.mdat`
 - Front/rear 25 Hz gap in individual captures (rears ~10-17 dB lower) does
   not appear in the full-capture total (-1.0) - fronts carry sub-bass.
 
+## 40/63 correction verification (Aug 18 2026, iteration 2)
+Applied 40 -> -4, 63 -> -5 (per iteration 1 action), re-measured with an
+ALL4 capture added. Source: `data/REW-data/2020-ford-ranger-rta-measurements-
+hybrid2.mdat` (452,057 B, committed). Capture order: FR, FL, RR, RL, FR+FL,
+RR+RL, ALL4. Extracted to `analysis/measurements_hybrid2.pkl` (7 measurements).
+- Mids/highs (250-16000 Hz) DONE: within ~+/-3 dB by both four-speaker power
+  sum and the ALL4 capture.
+- The 40/63 cut OVERSHOT: ALL4 residual +8.4/+7.0 (four-spk +11.9/+8.2) ->
+  measured below target. Response at 40-63 Hz moves ~1.7x the EQ change
+  (slope -1.7); cabin mode amplifies boosts/cuts nonlinearly.
+- 25 Hz swung +1.1 -> +13.3 and 100 Hz +2.9 -> +6.0 with NO EQ change there ->
+  25-100 Hz not repeatable between sessions (~10 dB variance). Don't chase a
+  single session's bass residuals.
+- ACTION: set 40 Hz -> +1, 63 Hz -> +1 (interpolated midpoint of the two
+  measured points). Keep 25 Hz +6.7, 100 Hz +2.9. Re-measure; take 2-3 repeat
+  full-system captures and accept +/-5 dB tolerance at 25-63 Hz if they bounce.
+- Consistency: ALL4 vs power sum within ~+/-3.8 dB (worst: 40 +3.8, 160 -3.5).
+
 ## Files
 - `../../tools/javastream.py` - REW mdat stream walker (shared)
 - `../../tools/extract.py` - pulls measurements out of an mdat into measurements.pkl
