@@ -2,4 +2,6 @@ __pycache__/
 *.pyc
 
 # regenerable derived analysis output (raw .mdat data stays tracked)
-vehicles/*/analysis/
+vehicles/*/analysis/rta_data/
+vehicles/*/analysis/*.pkl
+!vehicles/*/analysis/*.req
