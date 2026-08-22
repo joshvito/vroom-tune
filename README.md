@@ -29,3 +29,8 @@ tooling lives in `tools/`.
    ```
 
 See `vehicles/2020-ford-ranger/MEMORY.md` for the full worked example.
+
+For rear fill speakers, they should be set 
+    * -10db lower than the front speakers
+    * crossover at 200-300Hz
+    * delay 10-12ms
